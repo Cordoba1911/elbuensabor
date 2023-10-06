@@ -10,11 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity  //Con esta etiqueta indico a la unidad de persistencia que esta entidad se debe guardar en la bd
+@Table(name = "cliente")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class Cliente implements Serializable {
+@Getter
+@Setter
+public class ClienteEntity extends BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

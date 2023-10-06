@@ -17,11 +17,8 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class ClienteEntity extends BaseEntity implements Serializable {
+public class ClienteEntity extends BaseEntity  {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(name = "Nombre")
     private String nombre;
     @Column(name = "Apellido")
@@ -34,7 +31,7 @@ public class ClienteEntity extends BaseEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id")
     @Builder.Default
-    private List<Domicilio> domicilios = new ArrayList<Domicilio>();
+    private List<DomicilioEntity> domicilios = new ArrayList<DomicilioEntity>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id")

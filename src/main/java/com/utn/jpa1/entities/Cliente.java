@@ -1,4 +1,4 @@
-package com.utn.jpa1.entidades;
+package com.utn.jpa1.entities;
 
 
 import jakarta.persistence.*;

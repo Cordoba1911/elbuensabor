@@ -1,21 +1,15 @@
-package com.utn.jpa1.entidades;
+package com.utn.jpa1.entities;
 
-import com.utn.jpa1.enumeraciones.EstadoPedido;
-import com.utn.jpa1.enumeraciones.FormadePago;
+import com.utn.jpa1.ennumerations.FormadePago;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import jakarta.persistence.*;
-
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.util.Date;
 
 
 @Entity

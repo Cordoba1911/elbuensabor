@@ -1,4 +1,4 @@
-package com.utn.jpa1.enumeraciones;
+package com.utn.jpa1.ennumerations;
 
 public enum FormadePago {
 

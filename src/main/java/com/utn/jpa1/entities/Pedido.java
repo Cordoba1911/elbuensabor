@@ -1,7 +1,7 @@
-package com.utn.jpa1.entidades;
+package com.utn.jpa1.entities;
 
-import com.utn.jpa1.enumeraciones.EstadoPedido;
-import com.utn.jpa1.enumeraciones.TipoEnvio;
+import com.utn.jpa1.ennumerations.EstadoPedido;
+import com.utn.jpa1.ennumerations.TipoEnvio;
 import jakarta.persistence.*;
 import lombok.*;
 

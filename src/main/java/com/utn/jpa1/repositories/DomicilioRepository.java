@@ -1,6 +1,6 @@
-package com.utn.jpa1.repositorios;
+package com.utn.jpa1.repositories;
 
-import com.utn.jpa1.entidades.Domicilio;
+import com.utn.jpa1.entities.Domicilio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

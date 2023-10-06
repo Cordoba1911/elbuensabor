@@ -1,6 +1,6 @@
-package com.utn.jpa1.entidades;
+package com.utn.jpa1.entities;
 
-import com.utn.jpa1.enumeraciones.TipoProducto;
+import com.utn.jpa1.ennumerations.TipoProducto;
 import jakarta.persistence.*;
 import lombok.*;
 

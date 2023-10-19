@@ -10,8 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Getter
+@Setter
 @Builder
-public class Producto {
+public class Producto extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

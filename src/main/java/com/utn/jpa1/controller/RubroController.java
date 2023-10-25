@@ -2,8 +2,10 @@ package com.utn.jpa1.controller;
 
 import com.utn.jpa1.entities.ClienteEntity;
 import com.utn.jpa1.entities.Producto;
+import com.utn.jpa1.entities.Rubro;
 import com.utn.jpa1.services.ClienteServiceImpl;
 import com.utn.jpa1.services.ProductoServiceImpl;
+import com.utn.jpa1.services.RubroServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/rubros")
-public class RubroController {
+public class RubroController extends BaseControllerImpl<Rubro, RubroServiceImpl> {
     @GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro){
         try {

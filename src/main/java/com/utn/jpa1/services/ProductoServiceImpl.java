@@ -23,7 +23,7 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long> impleme
     @Override
     public List<Producto> search(String filtro) throws Exception {
         try{
-            List<Producto> productos = ProductoRepository.findByDenominacionContaining(filtro);
+            List<Producto> productos = productoRepository.findByDenominacionContaining(filtro);
             return productos;
         } catch (Exception e){
             throw new Exception(e.getMessage());
@@ -32,7 +32,7 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long> impleme
     @Override
     public Page<Producto> search(String filtro, Pageable pageable) throws Exception {
         try{
-            Page<Producto> productos = ProductoRepository.findByDenominacionContaining(filtro, pageable);
+            Page<Producto> productos = productoRepository.findByDenominacionContaining(filtro, pageable);
             return productos;
         } catch (Exception e){
             throw new Exception(e.getMessage());

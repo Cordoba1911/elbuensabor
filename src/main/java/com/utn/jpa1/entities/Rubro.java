@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 
 
-    public class Rubro extends BaseEntity implements Serializable {
+    public class Rubro extends BaseEntity {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

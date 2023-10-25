@@ -6,6 +6,7 @@ import com.utn.jpa1.repositories.BaseRepository;
 import com.utn.jpa1.repositories.RubroRepositorio;
 import com.utn.jpa1.services.BaseServiceImpl;
 import com.utn.jpa1.services.RubroService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,11 +15,12 @@ import java.util.List;
 @Service
 public class RubroServiceImpl extends BaseServiceImpl<Rubro,Long> implements RubroService {
 
+    @Autowired
     private final RubroRepositorio rubroRepositorio;
 
     public RubroServiceImpl(BaseRepository<Rubro, Long> baseRepository, RubroRepositorio rubroRepositorio) {
         super(baseRepository);
-        this.rubroRepositorio=rubroRepositorio;
+        this.rubroRepositorio = rubroRepositorio;
     }
 
     @Override

@@ -13,14 +13,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-
-public interface RubroRepositorio extends JpaRepository<Rubro, Long> {
+public interface RubroRepositorio extends BaseRepository<Rubro, Long> {
     List<Rubro> findByDenominacionContaining(String denominacion);
     Page<Rubro> findByDenominacionContaining(String denominacion, Pageable pageable);
 
-    @Query(value = "SELECT c FROM Rubro c WHERE c.denominacion LIKE %:filtro%")
+    @Query(value = "SELECT r FROM Rubro r WHERE r.denominacion LIKE %:filtro%")
     List<Rubro> search(@Param("filtro") String filtro);
-    @Query(value = "SELECT c FROM Rubro c WHERE c.denominacion LIKE %:filtro%")
+    @Query(value = "SELECT r FROM Rubro r WHERE r.denominacion LIKE %:filtro%")
     Page<Rubro> search(@Param("filtro") String filtro, Pageable pageable);
 
 }

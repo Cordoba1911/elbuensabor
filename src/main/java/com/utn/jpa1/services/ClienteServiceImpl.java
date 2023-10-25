@@ -14,6 +14,8 @@ public class ClienteServiceImpl extends BaseServiceImpl<ClienteEntity, Long> imp
 
     @Autowired
     private final ClienteRepository clienteRepository;
+
+
     public ClienteServiceImpl(BaseRepository<ClienteEntity, Long> baseRepository, ClienteRepository clienteRepository) {
         super(baseRepository);
         this.clienteRepository = clienteRepository;

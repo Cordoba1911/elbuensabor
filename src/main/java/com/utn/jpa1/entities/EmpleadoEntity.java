@@ -29,7 +29,7 @@ public class EmpleadoEntity extends BaseEntity  {
     @Column(name = "Dni")
     private Integer dni;
     @Column(name = "Rol")
-    private Enum<RolEmpleado> RolEmpleado;
+    private RolEmpleado rolEmpleado;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "empleado_id")

@@ -15,15 +15,20 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class Rubro extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "Denominacion")
-    private String denominacion;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rubro_id")
-    private List<Producto> productos = new ArrayList<Producto>();
 
-}
+    public class Rubro extends BaseEntity implements Serializable {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+        @Column(name = "Denominacion")
+        private String denominacion;
+
+        @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+        @JoinColumn(name = "rubro_id")
+        private List<Producto> productos = new ArrayList<Producto>();
+
+    }
+
+

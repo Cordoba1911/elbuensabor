@@ -34,11 +34,6 @@ public class EmpleadoEntity extends BaseEntity  {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "empleado_id")
     @Builder.Default
-    private List<DomicilioEntity> domicilios = new ArrayList<DomicilioEntity>();
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "empleado_id")
-    @Builder.Default
     private List<Pedido> pedidos = new ArrayList<Pedido>();
 
 }

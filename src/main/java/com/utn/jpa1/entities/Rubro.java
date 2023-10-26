@@ -3,7 +3,6 @@ package com.utn.jpa1.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +14,14 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
+    public class Rubro extends BaseDate {
 
-
-    public class Rubro extends BaseEntity {
-
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
         @Column(name = "Denominacion")
         private String denominacion;
 
-        @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+        @OneToMany(mappedBy = "Rubro", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
         @JoinColumn(name = "rubro_id")
-        private List<Producto> productos = new ArrayList<Producto>();
+        private List<ArticuloManufacturadoEntity> articuloManufacturadoEntities = new ArrayList<ArticuloManufacturadoEntity>();
 
     }
 

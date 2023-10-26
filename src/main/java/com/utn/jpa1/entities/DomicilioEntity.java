@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Builder
-public class DomicilioEntity extends BaseEntity {
+public class DomicilioEntity extends BaseDate {
 
     @Column(name = "calle")
     private String calle;

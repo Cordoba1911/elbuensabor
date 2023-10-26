@@ -1,11 +1,8 @@
 package com.utn.jpa1.services;
 
-import com.utn.jpa1.entities.Producto;
 import com.utn.jpa1.entities.Rubro;
 import com.utn.jpa1.repositories.BaseRepository;
 import com.utn.jpa1.repositories.RubroRepositorio;
-import com.utn.jpa1.services.BaseServiceImpl;
-import com.utn.jpa1.services.RubroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -18,7 +18,7 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class EmpleadoEntity extends BaseEntity  {
+public class EmpleadoEntity extends BaseDate  {
 
     @Column(name = "Nombre")
     private String nombre;

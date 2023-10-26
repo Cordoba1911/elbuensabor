@@ -19,7 +19,7 @@ import java.util.List;
         @Column(name = "Denominacion")
         private String denominacion;
 
-        @OneToMany(mappedBy = "Rubro", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+        @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
         @JoinColumn(name = "rubro_id")
         private List<ArticuloManufacturadoEntity> articuloManufacturadoEntities = new ArrayList<ArticuloManufacturadoEntity>();
 

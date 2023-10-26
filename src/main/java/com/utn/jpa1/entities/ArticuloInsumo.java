@@ -1,7 +1,16 @@
 package com.utn.jpa1.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Entity
+@Table(name = "ArticuloInsumo")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Getter
+@Setter
+@Builder
 public class ArticuloInsumo extends BaseEntity {
     @Column(name = "denominacion")
     private String denominacion;

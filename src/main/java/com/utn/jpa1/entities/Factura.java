@@ -27,8 +27,8 @@ public class Factura extends BaseDate {
     private Date fecha;
     @Column(name = "total")
     private int total;
-    @OneToOne(mappedBy = "id_pedido")
-    private Pedido pedido;
+    @OneToOne()
+    private ArticuloManufacturadoEntity articuloManufacturado;
     @Enumerated(EnumType.STRING)
     private FormadePago formadePago;
     @OneToMany(mappedBy = "factura")

@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "producto")
+@Table(name = "ArticuloManufacturado")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -30,8 +30,6 @@ public class ArticuloManufacturadoEntity extends BaseDate {
     @Column(name = "url_imagen")
     private String urlImagen;
 
-    @OneToMany(mappedBy = "articuloManufacturado")
-    private List<DetalleArticuloManufacturado> detallesArticuloManufacturado = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "id_tipoArticulo")

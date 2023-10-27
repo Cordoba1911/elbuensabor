@@ -18,10 +18,4 @@ public class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "fechaAlta")
-    private Date fechaAlta;
-    @Column(name = "fechaBaja")
-    private Date fechaBaja;
-    @Column(name = "fechaModificacion")
-    private Date fechaModificacion;
 }

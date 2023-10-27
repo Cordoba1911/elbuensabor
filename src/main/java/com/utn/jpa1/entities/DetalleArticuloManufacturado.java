@@ -1,12 +1,7 @@
 package com.utn.jpa1.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
+import lombok.*;
 
 @Entity
 @Table(name = "DetallePedido")
@@ -14,11 +9,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DetallePedido implements Serializable {
+@Getter
+@Setter
+public class DetalleArticuloManufacturado extends BaseDate {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(name = "Cantidad")
     private int cantidad;
     @Column(name = "Subtotal")
@@ -26,5 +20,5 @@ public class DetallePedido implements Serializable {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk.producto")
-    private Producto producto;
+    private ArticuloManufacturadoEntity articuloManufacturadoEntity;
 }

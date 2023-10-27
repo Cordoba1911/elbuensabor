@@ -1,12 +1,8 @@
 package com.utn.jpa1.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,15 +12,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Rubro extends BaseEntity implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "Denominacion")
-    private String denominacion;
+@Getter
+@Setter
+    public class Rubro extends BaseDate {
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rubro_id")
-    private List<Producto> productos = new ArrayList<Producto>();
+        @Column(name = "Denominacion")
+        private String denominacion;
 
-}
+        @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+        @JoinColumn(name = "rubro_id")
+        private List<ArticuloManufacturadoEntity> articuloManufacturadoEntities = new ArrayList<ArticuloManufacturadoEntity>();
+
+    }
+
+

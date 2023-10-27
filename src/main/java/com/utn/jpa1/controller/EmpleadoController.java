@@ -1,19 +1,17 @@
 package com.utn.jpa1.controller;
-import com.utn.jpa1.entities.Rubro;
-import com.utn.jpa1.services.RubroServiceImpl;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import com.utn.jpa1.entities.EmpleadoEntity;
+import com.utn.jpa1.services.EmpleadoServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/rubros")
-public class RubroController extends BaseControllerImpl<Rubro, RubroServiceImpl> {
-
+@RequestMapping(path = "api/v1/empleados")
+public class EmpleadoController extends BaseControllerImpl<EmpleadoEntity, EmpleadoServiceImpl> {
     @GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro){
         try {
@@ -30,5 +28,4 @@ public class RubroController extends BaseControllerImpl<Rubro, RubroServiceImpl>
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
-
 }

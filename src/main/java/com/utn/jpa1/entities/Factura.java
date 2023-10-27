@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 import lombok.Data;
@@ -18,19 +20,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Factura implements Serializable {
+public class Factura extends BaseDate {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha")
     private Date fecha;
     @Column(name = "total")
     private int total;
-    @OneToOne(mappedBy = "factura")
-    private Pedido pedido;
+    @OneToOne()
+    private ArticuloManufacturadoEntity articuloManufacturado;
     @Enumerated(EnumType.STRING)
     private FormadePago formadePago;
+    @OneToMany(mappedBy = "factura")
+    private List<DetalleFacturaEntity> detallesFactura = new ArrayList<>();
 
 }

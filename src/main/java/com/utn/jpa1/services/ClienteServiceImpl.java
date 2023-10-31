@@ -38,4 +38,9 @@ public class ClienteServiceImpl extends BaseServiceImpl<ClienteEntity, Long> imp
             throw new Exception(e.getMessage());
         }
     }
+    @Override
+    public ClienteEntity login(String username, String password)
+    {
+        return ClienteRepository.findByUsernameAndPassword (username, password);
+    }
 }

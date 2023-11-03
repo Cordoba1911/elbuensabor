@@ -15,9 +15,8 @@ public interface EmpleadoRepository extends BaseRepository<EmpleadoEntity, Long>
     List<EmpleadoEntity> findByNombreContainingOrApellidoContaining(String nombre, String apellido);
     Page<EmpleadoEntity> findByNombreContainingOrApellidoContaining(String nombre, String apellido, Pageable pageable);
     boolean existsByDni(@Param("dni") Integer dni);
-    @Query(value = "SELECT c FROM EmpleadoEntity c WHERE c.nombre LIKE %:filtro% OR c.apellido LIKE %:filtro%")
+    @Query(value = "SELECT e FROM EmpleadoEntity e WHERE e.nombre LIKE %:filtro% OR e.apellido LIKE %:filtro%")
     List<EmpleadoEntity> search(@Param("filtro") String filtro);
-    @Query(value = "SELECT c FROM EmpleadoEntity c WHERE c.nombre LIKE %:filtro% OR c.apellido LIKE %:filtro%")
+    @Query(value = "SELECT e FROM EmpleadoEntity e WHERE e.nombre LIKE %:filtro% OR e.apellido LIKE %:filtro%")
     Page<EmpleadoEntity> search(@Param("filtro") String filtro, Pageable pageable);
-
 }

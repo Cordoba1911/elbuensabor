@@ -29,6 +29,7 @@ public class EmpleadoEntity extends BaseDate  {
     @Column(name = "Dni")
     private Integer dni;
     @Column(name = "Rol")
+    @Enumerated
     private RolEmpleado rolEmpleado;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

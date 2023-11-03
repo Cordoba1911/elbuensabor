@@ -3,6 +3,7 @@ package com.utn.jpa1.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 
 import java.io.Serializable;
@@ -27,6 +28,10 @@ public class ClienteEntity extends BaseDate  {
     private String telefono;
     @Column(name = "Email")
     private String email;
+    @Column(name = "username", nullable = false)
+    private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id")

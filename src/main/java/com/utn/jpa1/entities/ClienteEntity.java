@@ -1,46 +1,47 @@
 package com.utn.jpa1.entities;
 
 
+import com.utn.jpa1.ennumerations.Rol;
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity  //Con esta etiqueta indico a la unidad de persistencia que esta entidad se debe guardar en la bd
+@Entity
 @Table(name = "cliente")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Builder
 @Getter
+@Builder
+
 @Setter
-public class ClienteEntity extends BaseDate  {
+public class ClienteEntity extends BaseDate {
 
-    @Column(name = "Nombre")
     private String nombre;
-    @Column(name = "Apellido")
+
     private String apellido;
-    @Column(name = "Telefono")
+
     private String telefono;
-    @Column(name = "Email")
+
     private String email;
-    @Column(name = "username", nullable = false)
-    private String username;
-    @Column(name = "password", nullable = false)
-    private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cliente_id")
-    @Builder.Default
-    private List<DomicilioEntity> domicilios = new ArrayList<DomicilioEntity>();
+    public Rol rol;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cliente_id")
-    @Builder.Default
-    private List<Pedido> pedidos = new ArrayList<Pedido>();
+    @OneToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
+    @OneToMany(mappedBy="cliente")
+    private List<DomicilioEntity> domicilios = new ArrayList<>();
+
+    //AGREGAR AL DIAGRAMA
+    @OneToMany(mappedBy="cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
+
+    public void addPedido(Pedido pedido){pedidos.add(pedido);}
+    public void addDomicilio(DomicilioEntity domicilio){
+        domicilios.add(domicilio);
+    }
 }

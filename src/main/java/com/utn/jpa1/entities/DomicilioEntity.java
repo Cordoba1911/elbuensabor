@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "domicilio")
@@ -27,5 +28,17 @@ public class DomicilioEntity extends BaseDate {
     private Integer codigoPostal;
     @Column(name = "pisoDpto")
     private Integer pisoDpto;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_cliente")
+    private ClienteEntity cliente;
+
+    @OneToMany(mappedBy="domicilio")
+    private List<Pedido> pedidos;
+
+    public void addPedido(Pedido pedido){
+        pedidos.add(pedido);
+    }
+
 
 }

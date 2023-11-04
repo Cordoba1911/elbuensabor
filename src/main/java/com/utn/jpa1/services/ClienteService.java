@@ -10,5 +10,4 @@ import java.util.List;
 public interface ClienteService extends BaseService<ClienteEntity, Long> {
     List<ClienteEntity> search(String filtro) throws Exception;
     Page<ClienteEntity> search(String filtro, Pageable pageable) throws Exception;
-    ClienteEntity login(String username, String password) throws Exception;
 }

@@ -20,18 +20,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Factura extends BaseDate {
 
+    @Column(name = "fecha_facturacion")
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "fecha")
-    private Date fecha;
-    @Column(name = "total")
-    private int total;
-    @OneToOne()
-    private ArticuloManufacturadoEntity articuloManufacturado;
-    @Enumerated(EnumType.STRING)
+    private Date fechaFacturacion;
+
     private FormadePago formadePago;
+
+    @Column(name = "total_venta", precision = 10, scale = 2)
+    private int totalVenta;
+
+    @OneToOne
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    private Pedido pedido;
+
     @OneToMany(mappedBy = "factura")
     private List<DetalleFacturaEntity> detallesFactura = new ArrayList<>();
+
+    public void addDetallesFactura(DetalleFacturaEntity detalleFactura){
+        detallesFactura.add(detalleFactura);
+    }
 
 }

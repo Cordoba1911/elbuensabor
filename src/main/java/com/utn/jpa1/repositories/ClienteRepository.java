@@ -20,6 +20,5 @@ public interface ClienteRepository extends BaseRepository<ClienteEntity, Long> {
     @Query(value = "SELECT c FROM ClienteEntity c WHERE c.nombre LIKE %:filtro% OR c.apellido LIKE %:filtro%")
     Page<ClienteEntity> search(@Param("filtro") String filtro, Pageable pageable);
 
-    public  ClienteEntity findByUsernameAndPassword(String username, String password);
 
 }

@@ -32,7 +32,7 @@ public class Pedido extends BaseDate {
     @Column(name = "fecha")
     private Date fecha;
 
-    @Column(name = "forma_pago")
+    @Column(name = "formadePago")
     @Enumerated(EnumType.STRING)
     private FormadePago formadePago;
 
@@ -42,17 +42,24 @@ public class Pedido extends BaseDate {
     private double total;
 
     @ManyToOne()
+    @JoinColumn(name = "id_domicilio_entrega")
+    private DomicilioEntity domicilio;
+
+    @ManyToOne()
     @JoinColumn(name = "id_cliente")
     private ClienteEntity cliente;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "Pedido_id")
-    @Builder.Default
-    private List<DetalleArticuloManufacturado> detalleArticuloManufacturados = new ArrayList<DetalleArticuloManufacturado>();
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<DetallePedido> detallesPedido;
+
+    public void adddetallesPedido(DetallePedido detallePedido){
+        detallesPedido.add(detallePedido);
+    }
+
+    public void setdetallesPedido(List<DetallePedido> detalles){this.detallesPedido = detalles;}
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_Factura")
+    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
     private Factura factura;
 }

@@ -36,7 +36,7 @@ import org.antlr.v4.runtime.misc.NotNull;
     @Column(name = "activo", nullable = false)
     private Boolean activo;
 
-    @OneToOne(mappedBy = "usuario", optional = false)
+    @OneToOne(mappedBy = "usuario", optional = true)
     private ClienteEntity cliente;
 
     public ClienteEntity getCliente() {
@@ -47,4 +47,5 @@ import org.antlr.v4.runtime.misc.NotNull;
         this.cliente = cliente;
     }
     }
+
 

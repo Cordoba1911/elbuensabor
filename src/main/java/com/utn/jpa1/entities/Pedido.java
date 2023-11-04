@@ -1,5 +1,6 @@
 package com.utn.jpa1.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.utn.jpa1.ennumerations.EstadoPedido;
 import com.utn.jpa1.ennumerations.FormadePago;
 import com.utn.jpa1.ennumerations.TipoEnvio;
@@ -11,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "pedido")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,10 +42,12 @@ public class Pedido extends BaseDate {
     private double total;
 
     @ManyToOne()
+    @JsonIgnore
     @JoinColumn(name = "id_domicilio_entrega")
     private DomicilioEntity domicilio;
 
     @ManyToOne()
+    @JsonIgnore
     @JoinColumn(name = "id_cliente")
     private ClienteEntity cliente;
 
@@ -59,7 +61,7 @@ public class Pedido extends BaseDate {
 
     public void setdetallesPedido(List<DetallePedido> detalles){this.detallesPedido = detalles;}
 
-
     @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Factura factura;
 }

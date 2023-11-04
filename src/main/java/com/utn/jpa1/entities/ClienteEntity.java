@@ -1,6 +1,7 @@
 package com.utn.jpa1.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.utn.jpa1.ennumerations.Rol;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,9 +31,11 @@ public class ClienteEntity extends BaseDate {
     public Rol rol;
 
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @JsonIgnore
     @OneToMany(mappedBy="cliente")
     private List<DomicilioEntity> domicilios = new ArrayList<>();
 

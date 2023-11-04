@@ -11,4 +11,5 @@ public class Jpa1Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Jpa1Application.class, args);
 	}
+
 }

@@ -19,13 +19,13 @@ public class DetallePedidoServiceImpl extends BaseServiceImpl<DetallePedido,Long
         super(baseRepository);
     }
 
-    //@Override
-    //public List<DetallePedido> search(String string) throws Exception {
-    //    return null;
-    //}
-    //
-    //@Override
-    //public Page<DetallePedido> search(String string, Pageable pageable) throws Exception {
-    //    return null;
-    //}
+    @Override
+    public List<DetallePedido> search(String string) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Page<DetallePedido> search(String string, Pageable pageable) throws Exception {
+        return null;
+    }
 }

@@ -28,4 +28,11 @@ public class ClienteController extends BaseControllerImpl<ClienteEntity, Cliente
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
+    //@GetMapping("/rankingClientes")
+    //public ResponseEntity<?> rankingProductos(@RequestParam String date1, String date2){
+      //  try{
+        //    System.out.println("adentro del controller");
+          //  return ResponseEntity.status(HttpStatus.OK).body(servicio.rankingClientes(date1, date2));
+        //} catch(Exception e){
+          //  return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
 }

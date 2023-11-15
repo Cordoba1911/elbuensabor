@@ -32,6 +32,11 @@ import java.util.List;
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+
+    @Column(name = "apellido", nullable = false)
+    private String apellido;
 
     @NotNull
     @Column(name = "rol")

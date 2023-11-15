@@ -18,14 +18,14 @@ public class DetalleFacturaServiceImpl extends BaseServiceImpl<DetalleFacturaEnt
         super(baseRepository);
     }
 
-    //@Override
-    //public List<DetalleFacturaEntity> search(String string) throws Exception {
-    //    return null;
-    //}
-    //
-    //@Override
-    //public Page<DetalleFacturaEntity> search(String string, Pageable pageable) throws Exception {
-    //    return null;
-    //}
+    @Override
+    public List<DetalleFacturaEntity> search(String string) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Page<DetalleFacturaEntity> search(String string, Pageable pageable) throws Exception {
+        return null;
+    }
 
 }

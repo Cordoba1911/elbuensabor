@@ -1,4 +1,6 @@
 package com.utn.jpa1.services;
 
-public interface TipoArticuloService {
-}
+import com.utn.jpa1.entities.TipoArticulo;
+
+public interface TipoArticuloService extends BaseService<TipoArticulo, Long>{
+        }

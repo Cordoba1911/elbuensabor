@@ -18,14 +18,14 @@ public class DetalleArticuloManufacturadoServiceImpl extends BaseServiceImpl<Det
         super(baseRepository);
     }
 
-    //@Override
-    //public List<DetalleArticuloManufacturado> search(String string) throws Exception {
-    //    return null;
-    //}
-    //
-    //@Override
-    //public Page<DetalleArticuloManufacturado> search(String string, Pageable pageable) throws Exception {
-    //    return null;
-    //}
+    @Override
+    public List<DetalleArticuloManufacturado> search(String string) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Page<DetalleArticuloManufacturado> search(String string, Pageable pageable) throws Exception {
+        return null;
+    }
 }
 

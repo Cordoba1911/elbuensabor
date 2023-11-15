@@ -1,5 +1,7 @@
 package com.utn.jpa1.services;
 
+import com.utn.jpa1.DTOs.DTOCompraInsumo;
+import com.utn.jpa1.DTOs.DTOInsumoDetalle;
 import com.utn.jpa1.entities.ArticuloInsumo;
 import com.utn.jpa1.repositories.ArticuloInsumoRepository;
 import com.utn.jpa1.repositories.BaseRepository;
@@ -8,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 @Service
 public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, Long> implements ArticuloInsumoService {
@@ -38,18 +41,18 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
         }
     }
 
-    //public Object ingresoStock(DTOCompraInsumo dtoCompraInsumo) throws Exception {
-    //    try{
-    //        List<DTOInsumoDetalle> detalles = dtoCompraInsumo.getDetalles();
-    //        for (int i = 0; i < detalles.size(); i++) {
-    //            ArticuloInsumo articuloInsumo = articuloInsumoRepository.getById(detalles.get(i).getArticuloInsumoId());
-    //            BigDecimal stockPrevio = articuloInsumo.getStockActual();
-    //            articuloInsumo.setStockActual(stockPrevio.add(BigDecimal.valueOf(detalles.get(i).getCantidad())));
-    //            articuloInsumoRepository.save(articuloInsumo);
-    //        }
-    //        return null;
-    //    }catch (Exception e) {
-    //        throw new Exception(e.getMessage());
-    //    }
-    //}
+    public Object ingresoStock(DTOCompraInsumo dtoCompraInsumo) throws Exception {
+        try{
+            List<DTOInsumoDetalle> detalles = dtoCompraInsumo.getDetalles();
+            for (int i = 0; i < detalles.size(); i++) {
+                ArticuloInsumo articuloInsumo = articuloInsumoRepository.getById(detalles.get(i).getArticuloInsumoId());
+                BigDecimal stockPrevio = articuloInsumo.getStockActual();
+                articuloInsumo.setStockActual(stockPrevio.add(BigDecimal.valueOf(detalles.get(i).getCantidad())));
+                articuloInsumoRepository.save(articuloInsumo);
+            }
+            return null;
+        }catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

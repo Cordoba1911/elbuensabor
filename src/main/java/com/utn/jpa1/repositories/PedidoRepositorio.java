@@ -1,6 +1,8 @@
 package com.utn.jpa1.repositories;
 
 import com.utn.jpa1.entities.Pedido;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,13 +12,13 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepositorio extends BaseRepository <Pedido, Long> {
-    /*@Query(
+    @Query(
             value = "SELECT p FROM Pedido p WHERE p.id_cliente = cast(:filtro as int)",
             countQuery = "SELECT count(*) FROM cliente",
             nativeQuery = true
     )
     Page<Pedido> searchByCliente(@Param("filtro") Long clienteId, Pageable pageable);
-*/
+
     @Query(
             value = "SELECT * FROM Pedido p WHERE p.id_cliente = %:filtro%",
 //            countQuery = "SELECT count(*) FROM cliente",

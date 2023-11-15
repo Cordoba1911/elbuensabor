@@ -14,4 +14,7 @@ public interface BaseService <E extends BaseEntity, ID extends Serializable> {
     public E save(E entity) throws Exception;
     public E update(ID id, E entity) throws Exception;
     public boolean delete(ID id) throws Exception;
+    List<E> search(String string) throws Exception;
+
+    Page<E> search(String string, Pageable pageable) throws Exception;
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Data
 @Table(name = "Pedido")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +31,7 @@ public class Factura extends BaseDate {
     private FormadePago formadePago;
 
     @Column(name = "total_venta", precision = 10, scale = 2)
-    private int totalVenta;
+    private BigDecimal totalVenta;
 
     @OneToOne
     @JoinColumn(name = "id_pedido", referencedColumnName = "id")

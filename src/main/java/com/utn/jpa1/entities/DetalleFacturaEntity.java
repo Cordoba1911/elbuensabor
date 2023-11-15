@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "detalle_factura")
 @NoArgsConstructor
@@ -14,10 +16,10 @@ import lombok.*;
 public class DetalleFacturaEntity extends BaseEntity{
 
     @Column(name = "cantidad")
-    private int cantidad;
+    private Integer cantidad;
 
     @Column(name = "subtotal", precision = 10, scale = 2)
-    private int subtotal;
+    private BigDecimal subtotal;
 
     @OneToOne()
     @JoinColumn(name = "id_articulo_manufacturado")

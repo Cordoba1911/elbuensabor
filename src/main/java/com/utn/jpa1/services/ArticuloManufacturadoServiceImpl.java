@@ -1,5 +1,6 @@
 package com.utn.jpa1.services;
 
+import com.utn.jpa1.ennumerations.EstadoBasico;
 import com.utn.jpa1.entities.ArticuloManufacturadoEntity;
 import com.utn.jpa1.entities.TipoArticulo;
 import com.utn.jpa1.repositories.ArticuloInsumoRepository;
@@ -26,23 +27,6 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         super(baseRepository);
     }
 
-//    @Override
-//    public List<ArticuloManufacturado> search(String string) throws Exception {
-//        try{
-//            List<ArticuloManufacturado> articulosEncontrados = new ArrayList<>();
-//            List<ArticuloManufacturado> articulosCandidatos = new ArrayList<>();
-//            articulosCandidatos = articuloManufacturadoRepository.findAll();
-//            for (int i = 0; i < articulosCandidatos.size() ; i++) {
-//                if (articulosCandidatos.get(i).getDenominacion() == string){
-//                    articulos.add(articulosCandidatos.get(i));
-//                }
-//            }
-//            return null;
-//        }catch (Exception e) {
-//            throw new Exception(e.getMessage());
-//        }
-//
-//    }
 
     @Override
     public List<ArticuloManufacturadoEntity> search(String string) throws Exception {
@@ -74,14 +58,14 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
-    //public ArticuloManufacturadoEntity cambiarEstado(Long artId, EstadoBasico estado) throws Exception{
-    //    try{
-    //        ArticuloManufacturadoEntity articuloManufacturado = articuloManufacturadoRepository.getById(artId);
-    //        articuloManufacturado.setEstado(estado);
-    //        articuloManufacturadoRepository.save(articuloManufacturado);
-    //        return articuloManufacturado;
-    //    }catch (Exception e) {
-    //        throw new Exception(e.getMessage());
-    //    }
-    //}
+    public ArticuloManufacturadoEntity cambiarEstado(Long artId, EstadoBasico estado) throws Exception{
+        try{
+            ArticuloManufacturadoEntity articuloManufacturado = articuloManufacturadoRepository.getById(artId);
+            articuloManufacturado.setEstado(estado);
+            articuloManufacturadoRepository.save(articuloManufacturado);
+            return articuloManufacturado;
+        }catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

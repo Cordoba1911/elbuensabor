@@ -1,11 +1,13 @@
 package com.utn.jpa1.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "DetalleArticuloManufacturado")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -13,12 +15,17 @@ import lombok.*;
 @Setter
 public class DetalleArticuloManufacturado extends BaseDate {
 
-    @Column(name = "Cantidad")
-    private int cantidad;
-    @Column(name = "Subtotal")
-    private double subtotal;
+    @NotNull
+    @Column(name = "cantidad", precision = 10, scale = 2)
+    private BigDecimal cantidad;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk.producto")
-    private ArticuloManufacturadoEntity articuloManufacturadoEntity;
+    @NotNull
+    @ManyToOne()
+    @JoinColumn(name = "id_articulo_insumo")
+    private ArticuloInsumo articuloInsumo;
+
+    @NotNull
+    @ManyToOne()
+    @JoinColumn(name = "id_ArticuloManufacturado")
+    private ArticuloManufacturadoEntity articuloManufacturado;
 }

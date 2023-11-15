@@ -5,8 +5,10 @@ import com.utn.jpa1.ennumerations.EstadoPedido;
 import com.utn.jpa1.ennumerations.FormadePago;
 import com.utn.jpa1.ennumerations.TipoEnvio;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Pedido extends BaseDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +43,10 @@ public class Pedido extends BaseDate {
     @Column(name = "tipo_envio")
     @Enumerated(EnumType.STRING)
     private TipoEnvio tipoEnvio;
-    private double total;
+
+    @NotNull
+    @Column(name = "total", precision = 10, scale = 2)
+    private BigDecimal total;
 
     @ManyToOne()
     @JsonIgnore
@@ -55,13 +62,14 @@ public class Pedido extends BaseDate {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<DetallePedido> detallesPedido;
 
-    public void adddetallesPedido(DetallePedido detallePedido){
+    public void addDetallesPedido(DetallePedido detallePedido){
         detallesPedido.add(detallePedido);
     }
 
-    public void setdetallesPedido(List<DetallePedido> detalles){this.detallesPedido = detalles;}
+    public void setDetallesPedido(List<DetallePedido> detalles){this.detallesPedido = detalles;}
 
     @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
     @JsonIgnore
     private Factura factura;
+
 }

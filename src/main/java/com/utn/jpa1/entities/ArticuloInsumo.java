@@ -1,7 +1,10 @@
 package com.utn.jpa1.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ArticuloInsumo")
@@ -11,21 +14,32 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class ArticuloInsumo extends BaseEntity {
-    @Column(name = "denominacion")
+public class ArticuloInsumo extends BaseDate {
+    @NotNull
     private String denominacion;
-    @Column(name = "precioCompra")
-    private int precioCompra;
-    @Column(name = "stock_actual")
-    private int stock_actual;
-    @Column(name = "stock_minimo")
-    private int stock_minimo;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_Rubro")
-    private Rubro rubro;
+    @Column(name = "url_imagen")
+    private String urlImagen;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_UnidadMedida")
+    @NotNull
+    @Column(name = "precio_compra", precision = 10, scale = 2)
+    private BigDecimal precioCompra;
+
+    @NotNull
+    @Column(name = "stock_actual", precision = 10, scale = 2)
+    private BigDecimal stockActual;
+
+    @NotNull
+    @Column(name = "stock_minimo", precision = 10, scale = 2)
+    private BigDecimal stockMinimo;
+
+    @NotNull
+    @ManyToOne()
+    @JoinColumn(name = "id_unidad_medida")
     private UnidadMedida unidadMedida;
+
+    @NotNull
+    @ManyToOne()
+    @JoinColumn(name = "id_rubro_articulo")
+    private Rubro rubro;
 }

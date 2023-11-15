@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authRequest ->
                         authRequest
                                 .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/**")).permitAll()
 
                                 //Consola H2:
                                 .requestMatchers(PathRequest.toH2Console()).permitAll()
@@ -38,6 +39,7 @@ public class SecurityConfig {
                                 //Autorizacion de acceso a la url:
                                 .requestMatchers(new AntPathRequestMatcher("/api/v1/demoAdmin/**")).hasAuthority("ADMINISTRADOR")
                                 .requestMatchers(new AntPathRequestMatcher("/api/v1/demoUser/**")).hasAuthority("USER")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/**")).hasAuthority("USER")
                 )
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)) //H2
                 .sessionManagement(sessionManager->

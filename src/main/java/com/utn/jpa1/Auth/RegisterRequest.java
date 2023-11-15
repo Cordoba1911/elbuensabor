@@ -1,5 +1,6 @@
 package com.utn.jpa1.Auth;
 
+import com.utn.jpa1.ennumerations.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,5 +16,5 @@ public class RegisterRequest {
     String nombre;
     String apellido;
     String country;
-    Boolean rol;
+    Rol rol;
 }
